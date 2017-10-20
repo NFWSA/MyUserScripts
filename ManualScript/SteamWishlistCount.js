@@ -4,7 +4,7 @@
 // 钱包统计有误
 // 部分混合消费统计有误
 
-normalPrice = 0, disOriPrice = 0, disPrice = 0;
+normalPrice = 0, disOriPrice = 0, disPrice = 0, futureGame = 0;
 money = '¥';
 normalGameCnt = 0, freeGameCnt = 0, disGameCnt = 0;
 disMax = 0, disMin = 100;
@@ -19,6 +19,10 @@ jQuery('div.price').each(
         // 付费游戏
         else {
             let price = ele.innerText.trim().split(' ');
+            if (price.length <= 1) {
+                ++futureGame;
+                return;
+            }
             if (money != price[0])
                 money = price[0];
             normalPrice += Number.parseInt(price[1]);
@@ -50,10 +54,11 @@ jQuery('div.discount_block.discount_block_inline').each(
         ++disGameCnt;
     }
 );
-rlt = '总游戏数量：' + (freeGameCnt + normalGameCnt + disGameCnt) + '\n';
+rlt = '总游戏数量：' + (freeGameCnt + normalGameCnt + disGameCnt + futureGame) + '\n';
 rlt += '    免费数量：' + freeGameCnt + '\n';
 rlt += '    付费数量：' + normalGameCnt + '\n';
-rlt += '    折扣数量：' + disGameCnt + '\n\n';
+rlt += '    折扣数量：' + disGameCnt + '\n';
+rlt += '    未发行数量：' + futureGame + '\n\n';
 rlt += '当前总需要花费：' + money + (normalPrice + disPrice) + '\n';
 rlt += '    普通游戏：' + money + normalPrice + '\n';
 rlt += "    折扣游戏：" + money + disPrice + '\n\n';
