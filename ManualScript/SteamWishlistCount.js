@@ -1,9 +1,4 @@
-// Steam愿望单 商品统计
-
-// 没有考虑退款情况
-// 钱包统计有误
-// 部分混合消费统计有误
-
+// Steam愿望单 价格统计
 normalPrice = 0, disOriPrice = 0, disPrice = 0, futureGame = 0;
 money = '¥';
 normalGameCnt = 0, freeGameCnt = 0, disGameCnt = 0;
@@ -62,8 +57,12 @@ rlt += '    未发行数量：' + futureGame + '\n\n';
 rlt += '当前总需要花费：' + money + (normalPrice + disPrice) + '\n';
 rlt += '    普通游戏：' + money + normalPrice + '\n';
 rlt += "    折扣游戏：" + money + disPrice + '\n\n';
-rlt += '无折扣总需花费：' + money + (normalPrice + disOriPrice) + '\n';
-rlt += '    差价：' + money + (disOriPrice - disPrice) + '\n\n';
-rlt += '折扣最高游戏：\n    -' + disMax + '%    ' + disMaxGame + '\n';
-rlt += '折扣最低游戏：\n    -' + disMin + '%    ' + disMinGame + '\n';
+if (0 != disPrice) {
+    rlt += '无折扣总需花费：' + money + (normalPrice + disOriPrice) + '\n';
+    rlt += '    差价：' + money + (disOriPrice - disPrice) + '\n\n';
+}
+if ('' != disMaxGame)
+    rlt += '折扣最高游戏：\n    -' + disMax + '%    ' + disMaxGame + '\n';
+if ('' != disMinGame)
+    rlt += '折扣最低游戏：\n    -' + disMin + '%    ' + disMinGame + '\n';
 alert(rlt);
