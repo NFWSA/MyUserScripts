@@ -1,3 +1,14 @@
+// ==UserScript==
+// @name         Steam Wishlist Count
+// @namespace    SteamWishlistCount
+// @version      0.1
+// @description  auto count the price of all games in steam wishlist.
+// @author       SurgeNight
+// @match        http*://steamcommunity.com/*/*/wishlist*
+// @grant        none
+// @run-at       document-end
+// ==/UserScript==
+
 // Steam愿望单 价格统计
 normalPrice = 0, disOriPrice = 0, disPrice = 0, futureGame = 0;
 money = '¥';
