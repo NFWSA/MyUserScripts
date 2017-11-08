@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  auto count the amount of all games played time in steam game list.
 // @author       SurgeNight
-// @match        http*://steamcommunity.com/*/*/games/\?=all*
+// @match        http*://steamcommunity.com/*/*/games/?tab=all*
 // @grant        none
 // @run-at       document-end
 // ==/UserScript==
