@@ -11,19 +11,19 @@
 
 //param = document.location.search.substr(1);
 param = window.name;
-if(param.match('AutoPwdPan=')!==null){
+if (param.match('AutoPwdPan=')!==null) {
     param = param.substr(11);
-    document.getElementById('accessCode').value = param;
-    document.getElementById('submitBtn').click();
+    console.log('auto password is :' + param);
+    var ins = document.getElementsByTagName('input');
+    for (var i = 0; i < ins.length; ++i) {
+        if (ins[i].tabIndex == 1) {
+            ins = ins[i];
+            break;
+        }
+    }
+    ins.value = param;
+    ins.parentElement.getElementsByTagName('a')[0].click();
 }
-
-// client side code
-// text = window.getSelection().toString().trim();
-// text = text.split(' ');
-// pwd = text[text.length - 1];
-// pwd = pwd.split(':');
-// pwd = pwd[pwd.length - 1];
-// pwd = pwd.split('：');
-// pwd = pwd[pwd.length - 1];
-// text = text[0];
-// window.open(text, 'AutoPwdPan=' + pwd);
+else {
+    console.log('auto password error!');
+}
