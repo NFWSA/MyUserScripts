@@ -5,8 +5,7 @@
 // @description  auto count the price of all games in steam wishlist.
 // @author       SurgeNight
 // @match        http*://store.steampowered.com/wishlist/*
-// @grant        GM_setValue
-// @grant        GM_getValue
+// @grant        none
 // @run-at       document-idle
 // ==/UserScript==
 
