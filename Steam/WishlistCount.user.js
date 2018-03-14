@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Steam Wishlist Count
 // @namespace    SteamWishlistCount
-// @version      0.1
+// @version      0.2
 // @description  auto count the price of all games in steam wishlist.
 // @author       SurgeNight
 // @match        http*://store.steampowered.com/wishlist/*
