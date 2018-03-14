@@ -1,16 +1,17 @@
 // ==UserScript==
 // @name         Steam Wishlist Count
 // @namespace    SteamWishlistCount
-// @version      0.3.1
+// @version      0.3.2
 // @description  auto count the price of all games in steam wishlist.
 // @author       SurgeNight
 // @match        http*://store.steampowered.com/wishlist/*
-// @grant        none
-// @run-at       document-end
+// @grant        GM_setValue
+// @grant        GM_getValue
+// @run-at       document-idle
 // ==/UserScript==
 
 // Steam愿望单 价格统计
-(function wishlistCount()
+setTimeout(function wishlistCount()
 {
 	if (!g_Wishlist || !g_Wishlist.rgAllApps) {
 		return window.requestAnimationFrame(wishlistCount);
@@ -135,4 +136,4 @@
 	ele.innerHTML = rlt;
 	jQuery("div.page_content")[0].insertBefore(ele, jQuery("div.page_content div.controls")[0]);
 	g_Wishlist.Update();
-}) ();
+}, 1000);
