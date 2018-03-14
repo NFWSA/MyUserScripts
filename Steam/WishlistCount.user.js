@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Steam Wishlist Count
 // @namespace    SteamWishlistCount
-// @version      0.3
+// @version      0.3.1
 // @description  auto count the price of all games in steam wishlist.
 // @author       SurgeNight
 // @match        http*://store.steampowered.com/wishlist/*
@@ -12,7 +12,7 @@
 // Steam愿望单 价格统计
 (function wishlistCount()
 {
-	if (!g_Wishlist.rgAllApps) {
+	if (!g_Wishlist || !g_Wishlist.rgAllApps) {
 		return window.requestAnimationFrame(wishlistCount);
 	}
 
