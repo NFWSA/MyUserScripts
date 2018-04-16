@@ -4,7 +4,7 @@
 // @version      0.1
 // @description  hide the zhihu.com's right sidebar.
 // @author       SurgeNight
-// @match        http://www.zhihu.com/question/*
+// @match        http*://www.zhihu.com/question/*
 // @grant        none
 // @run-at document-idle
 // ==/UserScript==
