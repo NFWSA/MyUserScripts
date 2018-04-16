@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide ZhiHu Sidebar
 // @namespace    SN_HideZhiHuAd
-// @version      0.1
+// @version      0.11
 // @description  hide the zhihu.com's right sidebar.
 // @author       SurgeNight
 // @match        http*://www.zhihu.com/question/*
