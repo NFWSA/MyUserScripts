@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name         Hide ZhiHu Sidebar
-// @namespace    SN_HideZhiHuAd
-// @version      0.12
-// @description  hide the zhihu.com's right sidebar.
+// @name         Hide ZhiHu Question Title And Ad
+// @namespace    SN_HideZhiHuQuesTitle
+// @version      0.13
+// @description  hide the right sidebar that contain ads and the title bar of zhihu.com's question page.
 // @author       SurgeNight
 // @match        http*://www.zhihu.com/question/*
 // @grant        none
