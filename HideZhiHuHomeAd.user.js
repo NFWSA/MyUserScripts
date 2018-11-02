@@ -10,8 +10,7 @@
 // ==/UserScript==
 
 (function() {
-	for (var x of document.getElementsByClassName("Card Banner"))
-		x.remove();
-	for (var x of document.getElementsByClassName("TopstoryItem--advertCard"))
-		x.remove();
+	var ele = document.createElement('style');
+	ele.innerHTML = ".Card.Banner { display: none; }\n.TopstoryItem--advertCard { display: none; }";
+	document.head.insertBefore(ele, document.head.lastElementChild);
 })();
