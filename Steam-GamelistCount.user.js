@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Steam GameList Count
 // @namespace    SteamGameListCount
-// @version      0.1
+// @version      0.11
 // @description  auto count the amount of all games played time in steam game list.
 // @author       SurgeNight
 // @match        http*://steamcommunity.com/*/*/games/?tab=all*
