@@ -48,7 +48,7 @@ items.each(function (i, ele) {
         times = childEle.innerText.split(' ');
         if (timeLab != times[2])
             timeLab = times[2];
-        times = Number.parseFloat(times[1]);
+        times = Number.parseFloat(times[1].replace(",", ""));
         gameTime += times;
         ++playedCnt;
         playedList = playedList.concat(ele);
