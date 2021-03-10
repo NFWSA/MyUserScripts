@@ -10,8 +10,15 @@
 // ==/UserScript==
 
 (function() {
+	function DateStamp() {
+		let date = new Date();
+		return date.getFullYear() + (date.getMonth() + 1) + date.getDate();
+	}
+	let now = DateStamp();
 	let intId = setInterval(() =>
 		{
+			if (now != DateStamp())
+				return location.reload(true);
 			let ele = document.getElementById("elTaskWrap");
 			if (ele == null)
 				return;
@@ -24,4 +31,5 @@
 			}
 		},
 	5000);
+	setTimeout(() => location.reload(true), 30 * 60 * 1000);
 })();
