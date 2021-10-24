@@ -14,18 +14,15 @@
 	param = window.name;
 	if (param.match('AutoPwdPan=') !== null) {
 		param = param.substr(11);
-		console.log('auto password is :' + param);
-		var ins = document.getElementsByTagName('input');
-		for (var i = 0; i < ins.length; ++i) {
-			if (ins[i].tabIndex == 1) {
-				ins = ins[i];
-				break;
+		let cid = setInterval(function(){
+			console.log('auto password is :' + param);
+			let ins = document.querySelector("#accessCode");
+			let btn = document.querySelector("#submitBtn");
+			if (ins && btn) {
+				ins.value = param;
+				btn.click();
+				clearInterval(cid);
 			}
-		}
-		ins.value = param;
-		ins.parentElement.getElementsByTagName('a')[0].click();
-	}
-	else {
-		console.log('auto password error!');
+		}, 200);
 	}
 })();
