@@ -1,8 +1,8 @@
 javascript:(
 function(){
-    var text = window.getSelection().toString().trim();
+    let text = window.getSelection().toString().trim();
     text = text.split('\n');
-    var pwd = text[text.length - 1];
+    let pwd = text[text.length - 1];
     pwd = pwd.split(String.fromCharCode(160));
     pwd = pwd[pwd.length - 1];
     pwd = pwd.split(':');
@@ -28,5 +28,4 @@ function(){
     else
         text = "https:" + text;
     window.open(text, 'AutoPwdPan=' + pwd);
-}
-)();
+})();
