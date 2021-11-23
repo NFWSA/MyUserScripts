@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         oldmanemu auto sign
 // @namespace    OldManEmuAutoSign
-// @version      0.1
+// @version      0.1.1
 // @description  auto click sign button to get score on bbs.oldmanemu.net.
 // @author       SurgeNight
 // @match        https://bbs.oldmanemu.net/index-*.htm
@@ -12,7 +12,7 @@
 (function() {
     function DateStamp() {
         let date = new Date();
-        return date.getFullYear() + (date.getMonth() + 1) + date.getDate();
+        return date.getFullYear().toString() + (date.getMonth() + 1) + date.getDate();
     }
     let signdate = localStorage.AutoSignDateStamp;
     setInterval(() => {
@@ -37,5 +37,5 @@
             cls.click();
             clearInterval(clsId);
         }, 1000);
-    }, 2000);
+    }, 60000);
 })();
