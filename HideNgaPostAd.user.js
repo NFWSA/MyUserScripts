@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Hide NGA Post Ad
 // @namespace    SN_HideNGAPostAd
-// @version      0.4
+// @version      0.4.1
 // @description  at bbs.nga.cn, hide and jump ads, hide avatar and img except hover.
 // @author       SurgeNight
 // @match        https://bbs.nga.cn/read.php?tid=**
@@ -21,7 +21,7 @@
     ele.innerHTML += "div#b_nav > div { display: none; }\n";
     ele.innerHTML += "div#b_nav > div.nav { display: block; }\n";
     ele.innerHTML += "span#fast_post_c > div > div > table > tbody > tr > td:nth-child(2) { display: none; }\n";
-    ele.innerHTML += "img.smile_ac, img.avatar { opacity: 0.05; }\n";
-    ele.innerHTML += "img.smile_ac:hover, img.avatar:hover { opacity: 1; }\n";
+    ele.innerHTML += "img.smile_ac, img.avatar, div.sign > img { opacity: 0.05; }\n";
+    ele.innerHTML += "img.smile_ac:hover, img.avatar:hover, div.sign > img:hover { opacity: 1; }\n";
     document.head.insertBefore(ele, document.head.lastElementChild);
 })();
