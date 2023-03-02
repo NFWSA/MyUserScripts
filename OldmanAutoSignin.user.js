@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         oldmanemu auto sign
 // @namespace    OldManEmuAutoSign
-// @version      0.1.1
+// @version      0.1.2
 // @description  auto click sign button to get score on bbs.oldmanemu.net.
 // @author       SurgeNight
-// @match        https://bbs.oldmanemu.net/index-*.htm
+// @match        https://bbs.oldmanemu.net
+// @match        https://bbs.oldmanemu.net/index**
 // @grant        none
 // @run-at       document-idle
 // ==/UserScript==
