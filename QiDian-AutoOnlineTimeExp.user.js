@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         QiDian Auto Online Time Exp Award Gain
 // @namespace    QiDianAutoOnlineTimeExp
-// @version      0.1.2
+// @version      0.1.3
 // @description  auto click button to get online time experience on qidian.com.
 // @author       SurgeNight
 // @match        http*://my.qidian.com/level*
@@ -15,9 +15,9 @@
         return date.getFullYear() * 370 + (date.getMonth() + 1) * 31 + date.getDate();
     }
     let now = DateStamp();
-    let interval_id = -1;
+    let interval_id = -1, timeout_id = -1, reload_timestamp = -1;
     let AutoClickOrWait = () => {
-        if (now != DateStamp())
+        if (now !== DateStamp())
             return location.reload(true);
         let table = document.querySelector("ul#elTaskWrap");
         if (table == null)
@@ -25,6 +25,11 @@
         let btn = table.querySelector(".ui-button");
         if (btn != null) {
             if (btn.innerText.includes(":")) {
+                if (timeout_id !== -1) {
+                    let sec = (reload_timestamp - Date.now()) / 1000;
+                    console.log(`after ${sec}s reload`);
+                    return;
+                }
                 let [min, sec] = btn.innerText.split(':');
                 if (sec == null)
                     sec = parseInt(min);
@@ -32,19 +37,20 @@
                     sec = parseInt(sec) + parseInt(min) * 60;
                 if (sec > 30)
                     sec = Math.floor(sec / 2);
-                console.log(`after ${sec}s reload`);
-                setTimeout(() => location.reload(true), sec * 1000);
+                console.log(`will after ${sec}s reload`);
+                reload_timestamp = Date.now() + sec * 1000;
+                timeout_id = setTimeout(() => location.reload(true), sec * 1000);
             }
             else {
                 btn.click();
-                if (interval_id != -1) {
+                if (interval_id !== -1) {
                     clearInterval(interval_id);
                     interval_id = -1;
                 }
             }
         }
         else {
-            if (interval_id != -1)
+            if (interval_id !== -1)
                 clearInterval(interval_id);
             interval_id = setInterval(AutoClickOrWait, 60 * 60 * 1000);
         }
